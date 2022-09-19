@@ -1,0 +1,78 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$dark-text: #00000e;
+$dark-primary-text: rgba($dark-text, 0.87);
+$dark-accent-text: rgba($dark-primary-text, 0.54);
+
+$light-text: #ffffff;
+$light-primary-text: $light-text;
+$light-accent-text: rgba($light-primary-text, 0.7);
+
+$blue-palette: (
+  50: #e4e6eb,
+  100: #b9c1d0,
+  200: #8d9aaf,
+  300: #647490,
+  400: #44587b,
+  500: #233f69,
+  600: #1d3861,
+  700: #163057,
+  800: #10274b,
+  900: #091833,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+  )
+);
+
+$yellow-palette: (
+  50: #fff8e0,
+  100: #ffedb0,
+  200: #ffe17c,
+  300: #ffd743,
+  400: #ffcc00,
+  500: #ffc300,
+  600: #ffb500,
+  700: #ffa100,
+  800: #ff8f00,
+  900: #ff6d00,
+  contrast: (
+    50: $dark-accent-text,
+    100: $dark-accent-text,
+    200: $dark-accent-text,
+    300: $dark-accent-text,
+    400: $dark-accent-text,
+    500: $dark-accent-text,
+    600: $dark-accent-text,
+    700: $light-accent-text,
+    800: $light-accent-text,
+    900: $light-accent-text,
+  )
+);
+
+
+$stg-du-alumni-primary: mat.define-palette($blue-palette, 900);
+
+$my-app-accent: mat.define-palette($yellow-palette, 400);
+
+
+$stg-du-alumni-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $stg-du-alumni-primary,
+      accent: $my-app-accent
+    ),
+  )
+);
+
+@include mat.all-component-themes($stg-du-alumni-theme);
